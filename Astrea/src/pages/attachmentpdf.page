@@ -2,7 +2,7 @@
     <apex:messages />
     <apex:pageBlock title="Send an Email to Your 
             {!account.name} Representatives">
-        <p>Fill out the fields below to test how you might send an email to a user.</p>
+        <p>Sample Fill out the fields below to test how you might send an email to a user.</p>
         <br />
         <apex:dataTable value="{!account.Contacts}" var="contact" border="1">
             <apex:column >
