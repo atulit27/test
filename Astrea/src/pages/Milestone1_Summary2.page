@@ -1,95 +1,117 @@
-<apex:page controller="Milestone1_Summary2" >
+<apex:page controller="Milestone1_Summary2">
 
 
 
-<apex:form >
+	<apex:form>
 
-<apex:outputPanel id="projectSummary_noProjects" rendered="{!projects.size == 0}">
+		<apex:outputPanel id="projectSummary_noProjects"
+			rendered="{!projects.size == 0}">
 
-    <h1>No projects!</h1>
-     
-</apex:outputPanel>
+			<h1>No projects!</h1>
 
-<apex:outputPanel id="mySummary" >
+		</apex:outputPanel>
 
-<apex:pageBlock title="My Incomplete Tasks">
-	<apex:pageBlockButtons location="top">
-                <apex:commandButton action="{!incompleteTasksByProject}" value="Incomplete Tasks By Projects" >
-                    </apex:commandButton>                 
+		<apex:outputPanel id="mySummary">
+
+			<apex:pageBlock title="My Incomplete Tasks">
+				<apex:pageBlockButtons location="top">
+					<apex:commandButton action="{!incompleteTasksByProject}"
+						value="Incomplete Tasks By Projects">
+					</apex:commandButton>                 
                     &nbsp;
-                    <apex:commandButton action="{!incompleteTasksByPriority}" value="Incomplete Tasks By Priority" >
-                    </apex:commandButton>
+                    <apex:commandButton
+						action="{!incompleteTasksByPriority}"
+						value="Incomplete Tasks By Priority">
+					</apex:commandButton>
                                         &nbsp;
-                    <apex:commandButton action="{!summaryMyLateTasks}" value="Late Tasks" >
-                    </apex:commandButton> 
+                    <apex:commandButton action="{!summaryMyLateTasks}"
+						value="Late Tasks">
+					</apex:commandButton> 
                                         &nbsp;
-                    <apex:commandButton action="{!summaryMyBlockedTasks}" value="Blocked Tasks" >
-                    </apex:commandButton> 
-                    
-                     
-	</apex:pageBlockButtons>
-</apex:pageBlock>
-
-</apex:outputPanel>
+                    <apex:commandButton
+						action="{!summaryMyBlockedTasks}" value="Blocked Tasks">
+					</apex:commandButton>
 
 
-<apex:outputPanel id="projectSummary" rendered="{!projects.size != 0}" layout="none">
+				</apex:pageBlockButtons>
+			</apex:pageBlock>
 
-<apex:repeat value="{!projects}" var="currentProject" id="projectList" >
+		</apex:outputPanel>
 
-<apex:pageBlock title="{!currentProject.name}">
-<apex:pageBlockButtons location="top">
-                <apex:commandLink action="{!view}" value="Project Detail" >
-                    <apex:param name="target" value="{!currentProject.id}" assignTo="{!targetProject}" />
-                    </apex:commandLink>                 
+
+		<apex:outputPanel id="projectSummary" rendered="{!projects.size != 0}"
+			layout="none">
+
+			<apex:repeat value="{!projects}" var="currentProject"
+				id="projectList">
+
+				<apex:pageBlock title="{!currentProject.name}">
+					<apex:pageBlockButtons location="top">
+						<apex:commandLink action="{!view}" value="Project Detail">
+							<apex:param name="target" value="{!currentProject.id}"
+								assignTo="{!targetProject}" />
+						</apex:commandLink>                 
                     &nbsp;
-                    <apex:commandLink action="{!viewMilestoneOpenTasks}" value="Milestones & Open Tasks" >
-                        <apex:param name="target" value="{!currentProject.id}" assignTo="{!targetProject}" />
-                    </apex:commandLink> 
+                    <apex:commandLink action="{!viewMilestoneOpenTasks}"
+							value="Milestones & Open Tasks">
+							<apex:param name="target" value="{!currentProject.id}"
+								assignTo="{!targetProject}" />
+						</apex:commandLink> 
                     &nbsp;
-                    <apex:commandLink action="{!viewOpenTasks}" value="All Open Tasks" >
-                        <apex:param name="target" value="{!currentProject.id}" assignTo="{!targetProject}" />
-                    </apex:commandLink> 
+                    <apex:commandLink action="{!viewOpenTasks}"
+							value="All Open Tasks">
+							<apex:param name="target" value="{!currentProject.id}"
+								assignTo="{!targetProject}" />
+						</apex:commandLink> 
                     &nbsp;
-                    <apex:commandLink action="{!viewMyTasks}" value="My Tasks" >
-                        <apex:param name="target" value="{!currentProject.id}" assignTo="{!targetProject}" />
-                    </apex:commandLink>      
+                    <apex:commandLink action="{!viewMyTasks}"
+							value="My Tasks">
+							<apex:param name="target" value="{!currentProject.id}"
+								assignTo="{!targetProject}" />
+						</apex:commandLink>      
                     &nbsp;
-                    <apex:commandLink action="{!viewBlockedTasks}" value="Blocked Tasks" >
-                        <apex:param name="target" value="{!currentProject.id}" assignTo="{!targetProject}" />
-                    </apex:commandLink>    
+                    <apex:commandLink action="{!viewBlockedTasks}"
+							value="Blocked Tasks">
+							<apex:param name="target" value="{!currentProject.id}"
+								assignTo="{!targetProject}" />
+						</apex:commandLink>    
                     &nbsp;  
-                    <apex:commandLink action="{!viewOverdueTasks}" value="Overdue Tasks" >
-                        <apex:param name="target" value="{!currentProject.id}" assignTo="{!targetProject}" />
-                    </apex:commandLink>                      
-            </apex:pageBlockButtons>
+                    <apex:commandLink action="{!viewOverdueTasks}"
+							value="Overdue Tasks">
+							<apex:param name="target" value="{!currentProject.id}"
+								assignTo="{!targetProject}" />
+						</apex:commandLink>
+					</apex:pageBlockButtons>
 
-    <apex:image value="{!HTMLENCODE(currentProject.Status_TasksOpenComplete__c)}"/>
-    
-
-
-
-    <apex:image value="{!HTMLENCODE(currentProject.Status_TasksOpenBlockedLate__c)}"/>
-    
- 
-
-    <apex:image value="{!HTMLENCODE(currentProject.Status_BudgetMiletoneEstimate__c)}"/>
-    
-    <br/>
-    
-    
-    <apex:image value="{!HTMLENCODE(currentProject.GoogleGanntUrl__c)}" />
-    
+					<apex:image
+						value="{!HTMLENCODE(currentProject.Status_TasksOpenComplete__c)}" />
 
 
 
-</apex:pageBlock>
 
-</apex:repeat>
+					<apex:image
+						value="{!HTMLENCODE(currentProject.Status_TasksOpenBlockedLate__c)}" />
 
-</apex:outputPanel>
 
-</apex:form>
+
+					<apex:image
+						value="{!HTMLENCODE(currentProject.Status_BudgetMiletoneEstimate__c)}" />
+
+					<br />
+
+
+					<apex:image value="{!HTMLENCODE(currentProject.GoogleGanntUrl__c)}" />
+
+
+
+
+				</apex:pageBlock>
+
+			</apex:repeat>
+
+		</apex:outputPanel>
+
+	</apex:form>
 
 
 </apex:page>

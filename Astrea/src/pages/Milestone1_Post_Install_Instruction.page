@@ -1,6 +1,6 @@
-<apex:page >
-<h1>Milestone Application Post Installation Instructions</h1>
-<h1>To configure the Email To Task Service:</h1>
+<apex:page>
+	<h1>Milestone Application Post Installation Instructions</h1>
+	<h1>To configure the Email To Task Service:</h1>
 1. Go to Setup -> Develop -> Email Services
 2. Click "New Email Service".
 3. Give a Email Service Name "Email To Milestone Task".
